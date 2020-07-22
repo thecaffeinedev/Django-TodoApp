@@ -6,3 +6,6 @@ from django.contrib.auth.forms import UserCreationForm
 def signupuser(request):
 
     return render(request, 'todoapp/signupuser.html', {'form':UserCreationForm()})
+
+def home(request):
+    return HttpResponse("Home")
