@@ -35,3 +35,28 @@ python3 manage.py migrate
 python3 manage.py runserver 
 ```
 
+
+
+### Homepage
+
+![](./imgs/home.png)
+
+#### SignUp
+
+![](./imgs/signup.png)
+
+#### Sign-In
+
+![](./imgs/login.png)
+
+#### Create Todo
+
+![](./imgs/createtodo.png)
+
+#### Edit Todo
+
+![](./imgs/editTodo.png)
+
+#### Current Todo
+
+![](./imgs/currentTodo.png)
