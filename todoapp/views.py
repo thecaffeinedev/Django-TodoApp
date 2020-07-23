@@ -1,31 +1,31 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User 
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.models import User
 from django.db import IntegrityError
+from django.contrib.auth import login, logout, authenticate
+from .forms import TodoForm
+from .models import Todo
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
-
 
 # Create your views here.
 def home(request):
     return render(request, 'todoapp/home.html')
 
 def signupuser(request):
-    if request.method== 'GET':
+    if request.method == 'GET':
         return render(request, 'todoapp/signupuser.html', {'form':UserCreationForm()})
     else:
-        if request.POST['password1']==request.POST['password2']:
+        if request.POST['password1'] == request.POST['password2']:
             try:
                 user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
                 user.save()
                 login(request, user)
                 return redirect('currenttodos')
             except IntegrityError:
-                return render(request, 'todoapp/signupuser.html', {'form':UserCreationForm(), 'error':'The username has already been choosen. please choose other'})
+                return render(request, 'todoapp/signupuser.html', {'form':UserCreationForm(), 'error':'That username has already been taken. Please choose a new username'})
         else:
-            #password didnt match
-            return render(request, 'todoapp/signupuser.html', {'form':UserCreationForm(), 'error':'Password did not match'})
+            return render(request, 'todoapp/signupuser.html', {'form':UserCreationForm(), 'error':'Passwords did not match'})
 
 def loginuser(request):
     if request.method == 'GET':
