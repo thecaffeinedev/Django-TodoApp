@@ -21,7 +21,7 @@ def signupuser(request):
             except IntegrityError:
                 return render(request, 'todoapp/signupuser.html', {'form':UserCreationForm(), 'error':'The username has already been choosen. please choose other'})
         else:
-            # tell the user password didnt match
+            #password didnt match
             return render(request, 'todoapp/signupuser.html', {'form':UserCreationForm(), 'error':'Password did not match'})
 
 def loginuser(request):
