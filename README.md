@@ -35,7 +35,13 @@ python3 manage.py migrate
 python3 manage.py runserver 
 ```
 
+You need to create a superuser before using the admin
 
+**Create Super User**
+
+```
+python3 manage.py createsuperuser
+```
 
 ### Homepage
 
