@@ -66,3 +66,4 @@ python3 manage.py createsuperuser
 #### Current Todo
 
 ![](./imgs/currentTodo.png)
+can you tell me how can i run this project on android studio
