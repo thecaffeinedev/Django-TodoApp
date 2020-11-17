@@ -66,3 +66,4 @@ python3 manage.py createsuperuser
 #### Current Todo
 
 ![](./imgs/currentTodo.png)
+Just I am doing it only for you know what i mean.
